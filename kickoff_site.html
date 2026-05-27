@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>18期キックオフ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #111110;
+    --white: #faf9f7;
+    --gray-100: #f5f4f0;
+    --gray-200: #e8e6df;
+    --gray-400: #b4b2a9;
+    --gray-600: #777570;
+    --accent: #111110;
+    --font-sans: 'Noto Sans JP', sans-serif;
+    --font-serif: 'Noto Serif JP', serif;
+  }
+
+  html { font-size: 16px; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--white);
+    color: var(--black);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: 52vw;
+    max-height: 560px;
+    min-height: 280px;
+    background: var(--black);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1a1917 0%, #2c2b27 50%, #111110 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 3rem 4rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .hero-title span {
+    display: block;
+    font-size: 0.45em;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.5rem;
+  }
+  .hero-slogan {
+    font-size: 13px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── LAYOUT ─── */
+  .layout {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 0 4rem;
+    align-items: start;
+  }
+
+  /* ─── MAIN ─── */
+  .main { padding: 3rem 0; }
+
+  .intro {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2;
+    color: var(--black);
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .intro strong {
+    font-weight: 400;
+    border-bottom: 1px solid var(--black);
+  }
+
+  /* ─── SECTION ─── */
+  .section { margin-bottom: 3rem; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--gray-600);
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+  }
+
+  /* ─── AGENDA ─── */
+  .agenda { list-style: none; }
+  .agenda-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    align-items: center;
+  }
+  .agenda-item:first-child { border-top: 1px solid var(--gray-200); }
+  .agenda-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--black);
+  }
+  .agenda-name .badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-weight: 400;
+  }
+  .badge-part { background: var(--gray-100); color: var(--gray-600); }
+  .badge-special { background: #111110; color: #fff; }
+  .badge-award { background: #f5f0e0; color: #7a6020; }
+  .badge-guest { background: #f0f0fa; color: #3c3489; }
+  .agenda-time {
+    font-size: 12px;
+    color: var(--gray-400);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+  .agenda-divider {
+    padding: 1rem 0 0.5rem;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    border-top: none;
+  }
+  .agenda-divider td { padding-top: 1.25rem; }
+
+  /* ─── DRESSCODE ─── */
+  .dresscode-card {
+    background: var(--black);
+    color: #fff;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .dresscode-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.75rem;
+  }
+  .dresscode-main {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+  }
+  .dresscode-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+  }
+  .dresscode-note {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ─── GUEST ─── */
+  .guest-card {
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .guest-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 0.75rem;
+  }
+  .guest-name {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .guest-desc {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+  }
+  .guest-gift {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    background: var(--gray-100);
+    border-radius: 3px;
+    padding: 0.6rem 0.75rem;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+  .guest-gift::before {
+    content: '🎁';
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .guest-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--gray-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-top: 0.5rem;
+  }
+
+  /* ─── TICKET ─── */
+  .ticket-card {
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .ticket-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 0.75rem;
+  }
+  .ticket-items { list-style: none; }
+  .ticket-items li {
+    font-size: 13px;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--black);
+  }
+  .ticket-items li:last-child { border-bottom: none; }
+  .ticket-items li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gray-400);
+    flex-shrink: 0;
+  }
+  .ticket-note {
+    margin-top: 0.75rem;
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.7;
+  }
+
+  /* ─── ACCESS ─── */
+  .access-steps { list-style: none; }
+  .access-step {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: 13px;
+    align-items: start;
+  }
+  .access-step:first-child { border-top: 1px solid var(--gray-200); }
+  .step-num {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .step-body { color: var(--black); }
+  .step-sub {
+    display: block;
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 2px;
+  }
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--gray-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-top: 1rem;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    padding: 3rem 0;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .sidebar-block {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .sidebar-block:first-child { border-top: 1px solid var(--gray-200); }
+
+  .sidebar-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .sidebar-label svg {
+    width: 13px; height: 13px;
+    stroke: var(--gray-400);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .sidebar-value {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.5;
+  }
+  .sidebar-sub {
+    font-size: 11px;
+    color: var(--gray-600);
+    margin-top: 3px;
+    line-height: 1.6;
+  }
+  .sidebar-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--gray-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-top: 0.4rem;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    border-top: 1px solid var(--gray-200);
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--gray-400);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 700px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding: 0 1.25rem;
+    }
+    .sidebar {
+      position: static;
+      padding-top: 0;
+      border-top: 1px solid var(--gray-200);
+    }
+    .hero-content { padding: 2rem 1.5rem; }
+    .main { padding: 2rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <p class="hero-tag">18期キックオフ &nbsp;·&nbsp; 2026</p>
+    <h1 class="hero-title">
+      <span>シン繁盛</span>
+      超・感謝
+    </h1>
+    <p class="hero-slogan">真の繁盛を構築する初年度 — これまでD&Iを支えてくれたすべての人に、心からの感謝を。</p>
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <p class="intro">
+      日々の挑戦の中で、私たちを支えてくれている家族や大切な人たち。ともに悩み、笑い、前に進んできた仲間。そして、D&Iの成長を信じ、必要としてくださるお客様。<br><br>
+      関わるすべての人の存在があって、今のD&Iがあります。<br><br>
+      今回のイベントは、そんな「感謝」を伝えるための時間です。普段なかなか言葉にできない想いを、この時間を通じて少しでも届けられたら嬉しいです。そして、またここから、一緒に次の一歩を踏み出していきましょう。
+    </p>
+
+    <!-- AGENDA -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Agenda</span>
+        <div class="section-line"></div>
+      </div>
+
+      <ul class="agenda">
+        <li class="agenda-item">
+          <span class="agenda-name">受付開始 <span class="badge badge-part">参加証あり</span></span>
+          <span class="agenda-time">12:30〜13:00</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">開会あいさつ</span>
+          <span class="agenda-time">13:00〜13:05</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">オープニング動画 <span class="badge badge-special">MOVIE</span></span>
+          <span class="agenda-time">13:05〜13:10</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">社長挨拶</span>
+          <span class="agenda-time">13:10〜13:15</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">17期業績報告</span>
+          <span class="agenda-time">13:15〜13:25</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">①クォーター表彰 <span class="badge badge-award">表彰</span></span>
+          <span class="agenda-time">13:25〜13:45</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">③年間表彰 <span class="badge badge-award">表彰</span></span>
+          <span class="agenda-time">13:45〜14:20</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">休憩</span>
+          <span class="agenda-time">14:20〜14:35</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">スピリット体現事例（6チーム）</span>
+          <span class="agenda-time">14:35〜15:35</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">転換・休憩</span>
+          <span class="agenda-time">15:35〜15:55</span>
+        </li>
+
+        <!-- 第二部 -->
+        <li class="agenda-item" style="border-top: 2px solid var(--black); margin-top: 0.5rem;">
+          <span class="agenda-name">2部開始・乾杯 <span class="badge badge-part">第二部</span></span>
+          <span class="agenda-time">15:55〜16:00</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">ゲストスピーチ <span class="badge badge-guest">ヘラルボニー</span></span>
+          <span class="agenda-time">16:00〜16:30</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">大道芸パフォーマンス <span class="badge badge-special">スペシャル</span></span>
+          <span class="agenda-time">16:00〜16:30</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">懇親会イベント・飲食など</span>
+          <span class="agenda-time">16:30〜18:15</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">締め挨拶</span>
+          <span class="agenda-time">18:15〜18:20</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">エンディング動画</span>
+          <span class="agenda-time">18:20〜18:30</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">終了・退場</span>
+          <span class="agenda-time">18:30〜19:00</span>
+        </li>
+        <li class="agenda-item">
+          <span class="agenda-name">完全撤収</span>
+          <span class="agenda-time">19:00〜</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- TICKET -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">参加証</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="ticket-card">
+        <div class="ticket-label">Reception — 受付にてお受け取りください</div>
+        <ul class="ticket-items">
+          <li>出し物・ゲームへの参加券</li>
+          <li>記念撮影への参加整理券</li>
+        </ul>
+        <p class="ticket-note">参加証は一部・二部を通じて必要です。紛失しないようご注意ください。</p>
+      </div>
+    </div>
+
+    <!-- GUEST -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Guest</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="guest-card">
+        <div class="guest-label">Guest Speaker</div>
+        <div class="guest-name">HERALBONY（ヘラルボニー）</div>
+        <p class="guest-desc">「異彩を、放て。」をミッションに掲げ、主に知的障害のある作家150名以上のアートをプロダクトやコラボレーションへ展開するクリエイティブカンパニー。障害のイメージ変容と新しい文化の創出を目指す活動についてお話しいただきます。</p>
+        <div class="guest-gift">参加者全員にヘラルボニーの<strong>タオルハンカチ</strong>をお土産としてプレゼント！</div>
+        <a class="guest-link" href="https://heralbony.com/collections/towelhandkerchief" target="_blank">タオルハンカチ 商品ページ ↗</a>
+      </div>
+    </div>
+
+    <!-- DRESSCODE -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Dress Code</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="dresscode-card">
+        <div class="dresscode-label">Dress Code</div>
+        <div class="dresscode-main">黒Tシャツ</div>
+        <p class="dresscode-desc">
+          今回は全員で一体感を持って盛り上がるため、ドレスコードを「黒Tシャツ」といたします。<br>
+          推奨：D&amp;I オリジナル黒Tシャツ<br>
+          お持ちでない場合：ご自前の黒Tシャツでご参加ください。<br>
+          ボトムス：動きやすい自由な服装で構いません。
+        </p>
+        <div class="dresscode-note">オリジナルTシャツ事前購入フォーム → [リンクを貼る] ／ 申込締切：◯月◯日（◯）まで</div>
+      </div>
+    </div>
+
+    <!-- ACCESS -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Access</span>
+        <div class="section-line"></div>
+      </div>
+      <ul class="access-steps">
+        <li class="access-step">
+          <span class="step-num">1</span>
+          <span class="step-body">小川町駅まで徒歩
+            <span class="step-sub">神田錦町3丁目 → 小川町駅（約5分）</span>
+          </span>
+        </li>
+        <li class="access-step">
+          <span class="step-num">2</span>
+          <span class="step-body">都営新宿線 乗車（1駅・約2分）
+            <span class="step-sub">小川町駅 → 岩本町駅（または徒歩約15分）</span>
+          </span>
+        </li>
+        <li class="access-step">
+          <span class="step-num">3</span>
+          <span class="step-body">岩本町駅から徒歩（約7分）
+            <span class="step-sub">A1出口 → 秋葉原方面へ</span>
+          </span>
+        </li>
+        <li class="access-step">
+          <span class="step-num">4</span>
+          <span class="step-body">パームス秋葉原 7F
+            <span class="step-sub">外神田1-1-10 ／ 秋葉原駅電気街口から徒歩5分</span>
+          </span>
+        </li>
+      </ul>
+      <a class="map-link" href="https://www.google.com/maps/dir/35.692678,139.760832/35.6977571,139.7703742" target="_blank">Google マップで経路を見る ↗</a>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-block">
+      <div class="sidebar-label">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Date
+      </div>
+      <div class="sidebar-value">2026年6月26日（金）</div>
+      <div class="sidebar-sub">受付 12:30〜 ／ 開始 13:00</div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-label">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Venue
+      </div>
+      <div class="sidebar-value">P.A.R.M.S 秋葉原店 7F</div>
+      <div class="sidebar-sub">東京都千代田区外神田1-1-10<br>秋葉原駅 徒歩5分</div>
+      <a class="sidebar-link" href="https://www.grace-bali.com/shop/akihabara/enkai/hall/#hall02" target="_blank">会場詳細 ↗</a>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-label">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        ドレスコード
+      </div>
+      <div class="sidebar-value">黒Tシャツ</div>
+      <div class="sidebar-sub">D&amp;Iオリジナル推奨<br>お持ちでない方はご自前で</div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-label">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        オープニングMOVIE
+      </div>
+      <div class="sidebar-sub">13:05 スタート</div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-label">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        懇親会コンテンツ投票ページ
+      </div>
+      <div class="sidebar-sub">リンク準備中</div>
+    </div>
+
+  </aside>
+
+</div>
+
+<footer class="footer">
+  <span>18期キックオフ 運営チーム</span>
+  <span>ご不明点はSlackまで</span>
+</footer>
+
+</body>
+</html>
