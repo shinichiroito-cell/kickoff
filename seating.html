@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配席図 — 18期キックオフ 超・感謝</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #111110;
+    --white: #faf9f7;
+    --gray-100: #f5f4f0;
+    --gray-200: #e8e6df;
+    --gray-400: #b4b2a9;
+    --gray-600: #777570;
+    --purple-50: #EEEDFE;
+    --purple-200: #AFA9EC;
+    --purple-600: #534AB7;
+    --purple-800: #3C3489;
+    --teal-100: #9FE1CB;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+  }
+  html { font-size: 16px; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 3rem;
+  }
+  .page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--gray-600);
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+    padding-bottom: 0.3rem;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: var(--black); }
+  .page-title {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+  }
+  .page-sub {
+    font-size: 12px;
+    color: var(--gray-600);
+    letter-spacing: 0.04em;
+  }
+  .map-container {
+    width: 100%;
+    max-width: 640px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  svg { display: block; width: 100%; height: auto; }
+  .legend {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 12px;
+    color: var(--gray-600);
+    padding: 0 0.5rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .legend-rect {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <a href="kickoff_site.html" class="back-link">← サイトトップへ戻る</a>
+  <h1 class="page-title">配席図</h1>
+  <p class="page-sub">P.A.R.M.S 秋葉原店 7F — 18期キックオフ 超・感謝</p>
+</div>
+
+<div class="map-container">
+<svg viewBox="0 0 580 680" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>18期キックオフ 会場配席図</title>
+
+<!-- 外壁 -->
+<rect x="20" y="20" width="540" height="640" rx="6" fill="none" stroke="#B4B2A9" stroke-width="1.5"/>
+
+<!-- ステージ -->
+<rect x="80" y="20" width="400" height="110" rx="4" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="280" y="73" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="16" font-weight="500" fill="#3C3489">ステージ</text>
+<text x="280" y="93" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#7F77DD">▲ 正面</text>
+
+<!-- バーカウンター -->
+<rect x="20" y="160" width="60" height="100" rx="4" fill="#E8E6DF" stroke="#B4B2A9" stroke-width="0.8"/>
+<text x="50" y="201" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#5F5E5A">バー</text>
+<text x="50" y="216" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#5F5E5A">カウン</text>
+<text x="50" y="231" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#5F5E5A">ター</text>
+
+<!-- クローク -->
+<rect x="20" y="285" width="90" height="65" rx="4" fill="#E8E6DF" stroke="#B4B2A9" stroke-width="0.8"/>
+<text x="65" y="314" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" font-weight="500" fill="#444441">クローク</text>
+<text x="65" y="330" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#777570">（荷物置場）</text>
+
+<!-- 備品置き場 -->
+<rect x="500" y="160" width="60" height="160" rx="4" fill="#E8E6DF" stroke="#B4B2A9" stroke-width="0.8"/>
+<text x="530" y="232" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#5F5E5A">備品</text>
+<text x="530" y="247" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#5F5E5A">置き場</text>
+
+<!-- テーブル描画マクロ風 (cx,cy=中心) -->
+<!-- Row 1: A(175,185) B(280,185) C(390,185) -->
+<!-- Row 2: D(228,295) E(340,295) -->
+<!-- Row 3: F(160,400) G(280,400) H(400,400) -->
+<!-- Row 4: I(228,500) J(340,500) -->
+
+<!-- テーブルA -->
+<circle cx="175" cy="195" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="175" y="200" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">A</text>
+<circle cx="175" cy="161" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="175" cy="229" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="141" cy="195" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="209" cy="195" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="152" cy="171" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="198" cy="171" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="152" cy="219" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="198" cy="219" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルB -->
+<circle cx="280" cy="195" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="280" y="200" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">B</text>
+<circle cx="280" cy="161" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="280" cy="229" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="246" cy="195" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="314" cy="195" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="257" cy="171" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="303" cy="171" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="257" cy="219" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="303" cy="219" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルC -->
+<circle cx="385" cy="195" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="385" y="200" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">C</text>
+<circle cx="385" cy="161" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="385" cy="229" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="351" cy="195" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="419" cy="195" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="362" cy="171" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="408" cy="171" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="362" cy="219" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="408" cy="219" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルD -->
+<circle cx="228" cy="300" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="228" y="305" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">D</text>
+<circle cx="228" cy="266" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="228" cy="334" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="194" cy="300" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="262" cy="300" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="205" cy="276" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="251" cy="276" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="205" cy="324" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="251" cy="324" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルE -->
+<circle cx="340" cy="300" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="340" y="305" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">E</text>
+<circle cx="340" cy="266" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="340" cy="334" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="306" cy="300" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="374" cy="300" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="317" cy="276" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="363" cy="276" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="317" cy="324" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="363" cy="324" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルF -->
+<circle cx="155" cy="405" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="155" y="410" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">F</text>
+<circle cx="155" cy="371" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="155" cy="439" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="121" cy="405" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="189" cy="405" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="132" cy="381" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="178" cy="381" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="132" cy="429" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="178" cy="429" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルG -->
+<circle cx="280" cy="405" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="280" y="410" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">G</text>
+<circle cx="280" cy="371" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="280" cy="439" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="246" cy="405" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="314" cy="405" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="257" cy="381" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="303" cy="381" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="257" cy="429" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="303" cy="429" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルH -->
+<circle cx="410" cy="405" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="410" y="410" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">H</text>
+<circle cx="410" cy="371" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="410" cy="439" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="376" cy="405" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="444" cy="405" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="387" cy="381" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="433" cy="381" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="387" cy="429" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="433" cy="429" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルI -->
+<circle cx="228" cy="505" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="228" y="510" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">I</text>
+<circle cx="228" cy="471" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="228" cy="539" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="194" cy="505" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="262" cy="505" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="205" cy="481" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="251" cy="481" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="205" cy="529" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="251" cy="529" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- テーブルJ -->
+<circle cx="340" cy="505" r="26" fill="#EEEDFE" stroke="#7F77DD" stroke-width="1"/>
+<text x="340" y="510" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="14" font-weight="500" fill="#3C3489">J</text>
+<circle cx="340" cy="471" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="340" cy="539" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="306" cy="505" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="374" cy="505" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="317" cy="481" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="363" cy="481" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="317" cy="529" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+<circle cx="363" cy="529" r="8" fill="#AFA9EC" stroke="#7F77DD" stroke-width="0.5"/>
+
+<!-- コインロッカー左 -->
+<rect x="105" y="555" width="100" height="24" rx="3" fill="#F5F4F0" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="155" y="571" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#777570">コインロッカー（100円）</text>
+
+<!-- コインロッカー右 -->
+<rect x="295" y="555" width="100" height="24" rx="3" fill="#F5F4F0" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="345" y="571" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#777570">コインロッカー（100円）</text>
+
+<!-- 傘立て -->
+<rect x="420" y="540" width="46" height="20" rx="3" fill="#F5F4F0" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="443" y="554" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="9" fill="#777570">傘立て</text>
+
+<!-- EV -->
+<rect x="475" y="537" width="38" height="22" rx="3" fill="#E8E6DF" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="494" y="552" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#444441">EV</text>
+<rect x="475" y="564" width="38" height="22" rx="3" fill="#E8E6DF" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="494" y="579" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#444441">EV</text>
+
+<!-- 受付 -->
+<rect x="355" y="595" width="72" height="38" rx="4" fill="#9FE1CB" stroke="#1D9E75" stroke-width="1"/>
+<text x="391" y="619" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="13" font-weight="500" fill="#085041">受付</text>
+
+<!-- WC左 -->
+<rect x="40" y="598" width="52" height="34" rx="3" fill="#F5F4F0" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="66" y="619" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#777570">WC</text>
+
+<!-- WC中 -->
+<rect x="195" y="598" width="52" height="34" rx="3" fill="#F5F4F0" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="221" y="619" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#777570">WC</text>
+
+</svg>
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-dot" style="background:#AFA9EC;border:1px solid #7F77DD;"></div>
+    <span>座席</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-rect" style="background:#EEEDFE;border:1px solid #7F77DD;"></div>
+    <span>テーブル（A〜J）</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-rect" style="background:#9FE1CB;border:1px solid #1D9E75;"></div>
+    <span>受付・出入口</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-rect" style="background:#EEEDFE;border:1px solid #7F77DD;"></div>
+    <span>ステージ</span>
+  </div>
+</div>
+
+</body>
+</html>
