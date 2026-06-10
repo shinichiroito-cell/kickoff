@@ -102,6 +102,20 @@
     border-radius: 2px;
     flex-shrink: 0;
   }
+
+  @media (max-width: 600px) {
+    body { padding: 1.25rem 0.75rem 2.5rem; }
+    .page-title { font-size: 1.1rem; }
+    .page-sub { font-size: 11px; }
+    .map-container { padding: 0.75rem; border-radius: 6px; }
+    .legend { gap: 0.6rem; font-size: 11px; }
+
+    /* 座席表テーブル：人数列を非表示にしてコンパクトに */
+    table th:nth-child(2),
+    table td:nth-child(2) { display: none; }
+    table { font-size: 12px; }
+    table th, table td { padding: 0.55rem 0.75rem !important; }
+  }
 </style>
 </head>
 <body>
@@ -316,6 +330,70 @@
     <div class="legend-rect" style="background:#EEEDFE;border:1px solid #7F77DD;"></div>
     <span>ステージ</span>
   </div>
+</div>
+
+<!-- 配席情報 -->
+<div style="width:100%;max-width:640px;margin-top:2rem;padding:0 0.5rem;">
+  <h2 style="font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.1em;color:#777570;margin-bottom:1rem;text-transform:uppercase;">座席表</h2>
+  <div style="border:1px solid #E8E6DF;border-radius:6px;overflow:hidden;">
+    <table style="width:100%;border-collapse:collapse;font-family:'Noto Sans JP',sans-serif;font-size:13px;">
+      <thead>
+        <tr style="background:#EEEDFE;">
+          <th style="padding:0.6rem 1rem;text-align:left;font-weight:500;color:#3C3489;width:60px;border-bottom:1px solid #D5D2F5;">席</th>
+          <th style="padding:0.6rem 1rem;text-align:left;font-weight:500;color:#3C3489;border-bottom:1px solid #D5D2F5;">人数</th>
+          <th style="padding:0.6rem 1rem;text-align:left;font-weight:500;color:#3C3489;border-bottom:1px solid #D5D2F5;">メンバー</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #F1EFE8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">A</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">7名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">MK＋CT＋財務経理</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F1EFE8;background:#FAFAF8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">B</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">7名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">ご来賓＋役員</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F1EFE8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">C</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">7名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">ご来賓＋執行役員＋人事労務＋内定者</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F1EFE8;background:#FAFAF8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">D</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">9名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">川崎＋新宿</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F1EFE8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">E</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">9名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">SS＋RA</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F1EFE8;background:#FAFAF8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">F</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">8名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">ゆめ気球＋阿倍野＋教育事業部＋WI</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F1EFE8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">H</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">9名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">CS</td>
+        </tr>
+        <tr style="border-bottom:1px solid #F1EFE8;background:#FAFAF8;">
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">I</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">8名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">CT</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 1rem;font-weight:700;color:#3C3489;">J</td>
+          <td style="padding:0.7rem 1rem;color:#5F5E5A;">8名</td>
+          <td style="padding:0.7rem 1rem;color:#333331;">CS</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:#B4B2A9;margin-top:0.75rem;font-family:'Noto Sans JP',sans-serif;">※ 当日の状況により変更となる場合があります。</p>
 </div>
 
 </body>
