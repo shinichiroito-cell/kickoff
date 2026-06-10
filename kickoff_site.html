@@ -43,7 +43,7 @@
   /* HERO */
   .hero {
     position: relative; overflow: hidden;
-    height: 56vw; max-height: 600px; min-height: 300px;
+    height: 56vw; max-height: 600px; min-height: 340px;
     background: var(--black); padding-top: 52px;
   }
   .hero-bg {
@@ -59,6 +59,11 @@
     position: relative; z-index: 1; height: 100%;
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 3rem 4rem; max-width: 960px; margin: 0 auto;
+  }
+  @media (max-width: 600px) {
+    .hero { height: auto; min-height: 0; padding-top: 52px; padding-bottom: 0; }
+    .hero-content { padding: 2rem 1.5rem; }
+    .hero-title { font-size: clamp(1.6rem, 8vw, 2.5rem); }
   }
   .hero-logo { width: min(320px, 85vw); height: auto; object-fit: contain; margin-bottom: 1.5rem; opacity: 0.9; }
   .hero-tag { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.75rem; }
@@ -113,6 +118,21 @@
   .drink-cat { padding: 0.65rem 0.75rem; background: var(--gray-100); border-radius: 2px; }
   .drink-cat-name { font-size: 11px; font-weight: 500; color: var(--black); margin-bottom: 4px; }
   .drink-cat-items { font-size: 11px; color: var(--gray-600); line-height: 1.6; }
+
+  /* ACCORDION */
+  .accordion { border-top: 1px solid var(--gray-200); }
+  .accordion:last-child { border-bottom: 1px solid var(--gray-200); }
+  .accordion-btn {
+    width: 100%; background: none; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.9rem 0; gap: 1rem; text-align: left;
+  }
+  .accordion-btn:hover .accordion-label { color: var(--black); }
+  .accordion-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-600); transition: color 0.15s; font-weight: 500; }
+  .accordion-icon { font-size: 16px; color: var(--gray-400); transition: transform 0.25s; flex-shrink: 0; }
+  .accordion-btn[aria-expanded="true"] .accordion-icon { transform: rotate(45deg); }
+  .accordion-body { display: none; padding-bottom: 1.25rem; }
+  .accordion-body.open { display: block; }
 
   /* DRESSCODE */
   .dresscode-card { background: var(--black); color: #fff; border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem; }
@@ -236,7 +256,7 @@
   <!-- SEATING BANNER -->
   <div style="margin-bottom:1.5rem;">
     <a href="https://shinichiroito-cell.github.io/kickoff/seating.html" target="_blank"
-       style="display:flex;align-items:center;justify-content:space-between;gap:1rem;background:linear-gradient(135deg,#3C3489,#7F77DD);color:#fff;text-decoration:none;border-radius:6px;padding:1rem 1.4rem;font-size:14px;font-weight:500;letter-spacing:0.03em;transition:opacity 0.15s;"
+       style="display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#111110;color:#fff;text-decoration:none;border-radius:6px;padding:1rem 1.4rem;font-size:14px;font-weight:500;letter-spacing:0.03em;transition:opacity 0.15s;"
        onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
       <span style="display:flex;align-items:center;gap:0.6rem;">
         <span style="font-size:18px;">🗺</span>
@@ -299,34 +319,46 @@
   <div class="section" id="food">
     <div class="section-header"><span class="section-title">Food &amp; Drink</span><div class="section-line"></div></div>
 
-    <div class="menu-section">
-      <div class="menu-section-title">Course Menu</div>
-      <ul class="menu-course">
-        <li class="menu-course-item"><span class="course-label">Amuse</span><span><span class="course-name">マカロン ～ハーブ＆チーズ～</span></span></li>
-        <li class="menu-course-item"><span class="course-label">Antipasto</span><span><span class="course-name">前菜3種盛り合わせ</span><span class="course-sub">魚介と香味野菜のセビーチェ／牛たたきと厳選野菜の生春巻き／ツナとポテトの一口タルト ～カレー風味～</span></span></li>
-        <li class="menu-course-item"><span class="course-label">Fritto</span><span><span class="course-name">アコウダイと筍のフリット ～枝豆のグリーンソース～</span></span></li>
-        <li class="menu-course-item"><span class="course-label">Carne</span><span><span class="course-name">お肉盛り合わせ</span><span class="course-sub">三元豚ロースのグリル ～特製シャリアピンソース～／ハーブチキンのロースト ～ローズマリーとレモン～</span></span></li>
-        <li class="menu-course-item"><span class="course-label">Pasta</span><span><span class="course-name">彩り野菜のホワイトラグー ～パスタカサレッチェ～</span></span></li>
-        <li class="menu-course-item"><span class="course-label">Dolce</span><span><span class="course-name">選べるデザート（1人1品）</span><span class="course-sub">完熟マンゴーソルベ／お持ち帰り用マカロン＆生チョコ</span></span></li>
-      </ul>
-      <p style="font-size:11px;color:var(--gray-400);margin-top:0.5rem;">※ アレルギー対応は事前申告で個別調整</p>
+    <!-- Course Menu アコーディオン -->
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+        <span class="accordion-label">Course Menu</span>
+        <span class="accordion-icon">＋</span>
+      </button>
+      <div class="accordion-body">
+        <ul class="menu-course">
+          <li class="menu-course-item"><span class="course-label">Amuse</span><span><span class="course-name">マカロン ～ハーブ＆チーズ～</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Antipasto</span><span><span class="course-name">前菜3種盛り合わせ</span><span class="course-sub">魚介と香味野菜のセビーチェ／牛たたきと厳選野菜の生春巻き／ツナとポテトの一口タルト ～カレー風味～</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Fritto</span><span><span class="course-name">アコウダイと筍のフリット ～枝豆のグリーンソース～</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Carne</span><span><span class="course-name">お肉盛り合わせ</span><span class="course-sub">三元豚ロースのグリル ～特製シャリアピンソース～／ハーブチキンのロースト ～ローズマリーとレモン～</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Pasta</span><span><span class="course-name">彩り野菜のホワイトラグー ～パスタカサレッチェ～</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Dolce</span><span><span class="course-name">選べるデザート（1人1品）</span><span class="course-sub">完熟マンゴーソルベ／お持ち帰り用マカロン＆生チョコ</span></span></li>
+        </ul>
+        <p style="font-size:11px;color:var(--gray-400);margin-top:0.5rem;">※ アレルギー対応は事前申告で個別調整</p>
+      </div>
     </div>
 
-    <div class="menu-section">
-      <div class="menu-section-title">Drink — スタンダード飲み放題 全15カテゴリー</div>
-      <div class="drink-grid">
-        <div class="drink-cat"><div class="drink-cat-name">定番のお酒</div><div class="drink-cat-items">生ビール（プレモル）／ハイボール各種／ウーロンハイ 他</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">サワー</div><div class="drink-cat-items">グレフル／青りんご／レモンサワー／コラーゲン 各種</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">カクテル</div><div class="drink-cat-items">翠各種／モスコミュール／カシス各種／テキーラ 他30種+</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">ワイン</div><div class="drink-cat-items">赤／白（グラス・ボトル）／サングリア／スパークリング</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">焼酎・梅酒・日本酒</div><div class="drink-cat-items">黒丸／大隅／茉莉花／南高梅酒／辛口日本酒</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">ジャーカクテル</div><div class="drink-cat-items">バナナミルクタピオカ／杏仁ミルクタピオカ／スパークリング3種</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">タピオカドリンク</div><div class="drink-cat-items">ミルクティー／マンゴー／抹茶オレ／ococア／いちごみるく</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">フルーツジュース</div><div class="drink-cat-items">トマト／マンゴー／パイン／クランベリー／白桃</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">ノンアル・お茶</div><div class="drink-cat-items">オールフリー／伊右衛門特茶／黒烏龍茶</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">ノンカフェイン</div><div class="drink-cat-items">ルイボス／カモミール／ゆず茶 他6種</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">フロート</div><div class="drink-cat-items">クリームソーダ／コーラ／ococア／コーヒー／抹茶オレ 他</div></div>
-        <div class="drink-cat"><div class="drink-cat-name">締めのスープ</div><div class="drink-cat-items">しじみの味噌汁／カレースープ</div></div>
+    <!-- Drink アコーディオン -->
+    <div class="accordion">
+      <button class="accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+        <span class="accordion-label">Drink — スタンダード飲み放題 全15カテゴリー</span>
+        <span class="accordion-icon">＋</span>
+      </button>
+      <div class="accordion-body">
+        <div class="drink-grid">
+          <div class="drink-cat"><div class="drink-cat-name">定番のお酒</div><div class="drink-cat-items">生ビール（プレモル）／ハイボール各種／ウーロンハイ 他</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">サワー</div><div class="drink-cat-items">グレフル／青りんご／レモンサワー／コラーゲン 各種</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">カクテル</div><div class="drink-cat-items">翠各種／モスコミュール／カシス各種／テキーラ 他30種+</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">ワイン</div><div class="drink-cat-items">赤／白（グラス・ボトル）／サングリア／スパークリング</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">焼酎・梅酒・日本酒</div><div class="drink-cat-items">黒丸／大隅／茉莉花／南高梅酒／辛口日本酒</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">ジャーカクテル</div><div class="drink-cat-items">バナナミルクタピオカ／杏仁ミルクタピオカ／スパークリング3種</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">タピオカドリンク</div><div class="drink-cat-items">ミルクティー／マンゴー／抹茶オレ／ococア／いちごみるく</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">フルーツジュース</div><div class="drink-cat-items">トマト／マンゴー／パイン／クランベリー／白桃</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">ノンアル・お茶</div><div class="drink-cat-items">オールフリー／伊右衛門特茶／黒烏龍茶</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">ノンカフェイン</div><div class="drink-cat-items">ルイボス／カモミール／ゆず茶 他6種</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">フロート</div><div class="drink-cat-items">クリームソーダ／コーラ／ococア／コーヒー／抹茶オレ 他</div></div>
+          <div class="drink-cat"><div class="drink-cat-name">締めのスープ</div><div class="drink-cat-items">しじみの味噌汁／カレースープ</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -362,7 +394,7 @@
       <div class="guest-name">HERALBONY（ヘラルボニー）</div>
       <p class="guest-desc">「異彩を、放て。」をミッションに掲げ、主に知的障害のある作家150名以上のアートをプロダクトやコラボレーションへ展開するクリエイティブカンパニー。障害のイメージ変容と新しい文化の創出を目指す活動についてお話しいただきます。</p>
       <div class="guest-gift">参加者全員にヘラルボニーの<strong>タオルハンカチ</strong>をお土産としてプレゼント！</div>
-      <a class="guest-link" href="https://heralbony.com/collections/towelhandkerchief" target="_blank">タオルハンカチ 商品ページ ↗</a>
+
     </div>
   </div>
 
@@ -379,7 +411,7 @@
         ボトムス：動きやすい自由な服装で構いません。<br>
         ※ 会場が冷える可能性があるため、羽織れるものをお持ちください。
       </p>
-      <div class="dresscode-note">オリジナルTシャツ事前購入フォーム → [リンクを貼る] ／ 申込締切：◯月◯日（◯）まで</div>
+
     </div>
   </div>
 
@@ -442,19 +474,22 @@
     </div>
     <div class="sidebar-sub">13:05 スタート</div>
   </div>
-  <div class="sidebar-block">
-    <div class="sidebar-label">
-      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>懇親会コンテンツ投票
-    </div>
-    <div class="sidebar-sub">リンク準備中</div>
-  </div>
+
 </aside>
 </div>
 
 <footer class="footer">
   <span>18期キックオフ 運営チーム</span>
-  <span>ご不明点はSlackまで</span>
+  <span>ご不明点は管理部 小澤（Teams チャット）まで</span>
 </footer>
 
+<script>
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+</script>
 </body>
 </html>
