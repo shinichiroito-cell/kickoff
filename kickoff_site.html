@@ -81,20 +81,21 @@
   .section { margin-bottom: 3rem; }
   .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
   .section-title { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; color: var(--gray-600); }
+  .section-title-strong { font-size: 16.5px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; color: var(--black); }
   .section-line { flex: 1; height: 1px; background: var(--gray-200); }
 
   /* AGENDA */
   .agenda { list-style: none; }
   .agenda-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--gray-200); align-items: center; }
   .agenda-item:first-child { border-top: 1px solid var(--gray-200); }
-  .agenda-name { font-size: 14px; font-weight: 400; color: var(--black); }
+  .agenda-name { font-size: 14px; font-weight: 300; color: var(--gray-600); }
   .badge { display: inline-block; font-size: 10px; letter-spacing: 0.04em; padding: 2px 7px; border-radius: 2px; margin-left: 8px; vertical-align: middle; font-weight: 400; }
   .badge-part { background: var(--gray-100); color: var(--gray-600); }
   .badge-special { background: #111110; color: #fff; }
   .badge-award { background: #f5f0e0; color: #7a6020; }
   .badge-guest { background: #f0f0fa; color: #3c3489; }
   .agenda-time { font-size: 12px; color: var(--gray-400); white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .agenda-divider { padding: 1rem 0 0.25rem; font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-600); margin-top: 0.5rem; grid-column: 1/-1; }
+  .agenda-divider { padding: 1rem 0 0.25rem; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--black); margin-top: 0.5rem; grid-column: 1/-1; }
 
   /* INFO ROWS (施設案内) */
   .info-list { list-style: none; }
@@ -146,8 +147,8 @@
   .guest-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 0.75rem; }
   .guest-name { font-size: 14px; font-weight: 500; margin-bottom: 0.5rem; }
   .guest-desc { font-size: 12px; color: var(--gray-600); line-height: 1.8; margin-bottom: 0.75rem; }
-  .guest-gift { display: flex; align-items: flex-start; gap: 0.5rem; background: var(--gray-100); border-radius: 3px; padding: 0.6rem 0.75rem; font-size: 12px; color: var(--gray-600); }
-  .guest-gift::before { content: "🎁"; flex-shrink: 0; font-size: 13px; }
+  .guest-gift { display: block; background: var(--gray-100); border-radius: 3px; padding: 0.6rem 0.75rem; font-size: 12px; color: var(--gray-600); line-height: 1.7; }
+  .guest-gift::before { content: "🎁 "; font-size: 13px; filter: grayscale(1); }
   .guest-link { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--gray-600); text-decoration: underline; text-underline-offset: 3px; margin-top: 0.5rem; }
 
   /* REQUEST */
@@ -253,19 +254,6 @@
     今回のイベントは、そんな「感謝」を伝えるための時間です。普段なかなか言葉にできない想いを、この時間を通じて少しでも届けられたら嬉しいです。そして、またここから、一緒に次の一歩を踏み出していきましょう。
   </p>
 
-  <!-- SEATING BANNER -->
-  <div style="margin-bottom:1.5rem;">
-    <a href="https://shinichiroito-cell.github.io/kickoff/seating.html" target="_blank"
-       style="display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#111110;color:#fff;text-decoration:none;border-radius:6px;padding:1rem 1.4rem;font-size:14px;font-weight:500;letter-spacing:0.03em;transition:opacity 0.15s;"
-       onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-      <span style="display:flex;align-items:center;gap:0.6rem;">
-        <span style="font-size:18px;">🗺</span>
-        <span>第一部配席はこちら</span>
-      </span>
-      <span style="font-size:18px;opacity:0.8;">→</span>
-    </a>
-  </div>
-
   <!-- PROGRAM -->
   <div class="section" id="program">
     <div class="section-header"><span class="section-title">Program</span><div class="section-line"></div></div>
@@ -273,13 +261,20 @@
       <li class="agenda-item" style="grid-column:1/-1">
         <span class="agenda-divider">第一部 ／ セレモニー　13:00〜15:55（受付 12:30〜）</span>
       </li>
+      <li class="agenda-item" style="grid-column:1/-1; padding:0.5rem 0;">
+        <a href="https://shinichiroito-cell.github.io/kickoff/seating.html" target="_blank"
+           style="display:inline-flex;align-items:center;gap:0.5rem;background:#111110;color:#fff;text-decoration:none;border-radius:4px;padding:0.5rem 1rem;font-size:12px;font-weight:500;letter-spacing:0.03em;transition:opacity 0.15s;"
+           onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+          <span>🗺</span><span>第一部配席はこちら</span><span style="opacity:0.7;">→</span>
+        </a>
+      </li>
       <li class="agenda-item"><span class="agenda-name">受付開始</span><span class="agenda-time">12:30〜13:00</span></li>
       <li class="agenda-item"><span class="agenda-name">開会あいさつ</span><span class="agenda-time">13:00〜13:05</span></li>
-      <li class="agenda-item"><span class="agenda-name">オープニング動画 <span class="badge badge-special">MOVIE</span></span><span class="agenda-time">13:05〜13:10</span></li>
+      <li class="agenda-item"><span class="agenda-name">オープニング動画</span><span class="agenda-time">13:05〜13:10</span></li>
       <li class="agenda-item"><span class="agenda-name">社長挨拶</span><span class="agenda-time">13:10〜13:15</span></li>
       <li class="agenda-item"><span class="agenda-name">17期業績報告</span><span class="agenda-time">13:15〜13:25</span></li>
-      <li class="agenda-item"><span class="agenda-name">①クォーター表彰 <span class="badge badge-award">表彰</span></span><span class="agenda-time">13:25〜13:45</span></li>
-      <li class="agenda-item"><span class="agenda-name">②年間表彰 <span class="badge badge-award">表彰</span></span><span class="agenda-time">13:45〜14:20</span></li>
+      <li class="agenda-item"><span class="agenda-name">①クォーター表彰</span><span class="agenda-time">13:25〜13:45</span></li>
+      <li class="agenda-item"><span class="agenda-name">②年間表彰</span><span class="agenda-time">13:45〜14:20</span></li>
       <li class="agenda-item"><span class="agenda-name">休憩</span><span class="agenda-time">14:20〜14:35</span></li>
       <li class="agenda-item"><span class="agenda-name">スピリット体現事例（6チーム）</span><span class="agenda-time">14:35〜15:35</span></li>
       <li class="agenda-item"><span class="agenda-name">転換・休憩</span><span class="agenda-time">15:35〜15:55</span></li>
@@ -287,11 +282,11 @@
       <li class="agenda-item" style="grid-column:1/-1">
         <span class="agenda-divider">第二部 ／ 懇親会　15:55〜18:30（約155分）</span>
       </li>
-      <li class="agenda-item"><span class="agenda-name">2部開始 <span class="badge badge-part">第二部</span></span><span class="agenda-time">15:55〜16:05</span></li>
+      <li class="agenda-item"><span class="agenda-name">2部開始</span><span class="agenda-time">15:55〜16:05</span></li>
       <li class="agenda-item"><span class="agenda-name">歓談</span><span class="agenda-time">16:05〜16:25</span></li>
       <li class="agenda-item"><span class="agenda-name">懇親会イベント・歓談など</span><span class="agenda-time">16:25〜18:10</span></li>
       <li class="agenda-item"><span class="agenda-name">締め挨拶</span><span class="agenda-time">18:10〜18:20</span></li>
-      <li class="agenda-item"><span class="agenda-name">エンディング動画 <span class="badge badge-special">MOVIE</span></span><span class="agenda-time">18:20〜18:25</span></li>
+      <li class="agenda-item"><span class="agenda-name">エンディング動画</span><span class="agenda-time">18:20〜18:25</span></li>
       <li class="agenda-item"><span class="agenda-name">終了・退場</span><span class="agenda-time">18:25〜18:55</span></li>
       <li class="agenda-item"><span class="agenda-name">完全撤収</span><span class="agenda-time">18:55〜</span></li>
     </ul>
@@ -300,24 +295,18 @@
 
   <!-- ACCESS -->
   <div class="section" id="access">
-    <div class="section-header"><span class="section-title">Access</span><div class="section-line"></div></div>
+    <div class="section-header"><span class="section-title section-title-strong">Access</span><div class="section-line"></div></div>
     <ul class="info-list" style="margin-bottom:1.25rem;">
-      <li class="info-item"><span class="info-label">会場</span><span class="info-value">P.A.R.M.S 秋葉原店（7F会場）</span></li>
+      <li class="info-item"><span class="info-label">会場</span><span class="info-value" style="font-weight:500;">P.A.R.M.S秋葉原店（7F会場）</span></li>
       <li class="info-item"><span class="info-label">住所</span><span class="info-value">東京都千代田区外神田1-1-10</span></li>
       <li class="info-item"><span class="info-label">最寄駅</span><span class="info-value">JR秋葉原駅 電気街北口より徒歩3分</span></li>
     </ul>
-    <ul class="access-steps">
-      <li class="access-step"><span class="step-num">1</span><span class="step-body">小川町駅まで徒歩<span class="step-sub">神田錦町3丁目 → 小川町駅（約5分）</span></span></li>
-      <li class="access-step"><span class="step-num">2</span><span class="step-body">都営新宿線 乗車（1駅・約2分）<span class="step-sub">小川町駅 → 岩本町駅（または徒歩約15分）</span></span></li>
-      <li class="access-step"><span class="step-num">3</span><span class="step-body">岩本町駅から徒歩（約7分）<span class="step-sub">A1出口 → 秋葉原方面へ</span></span></li>
-      <li class="access-step"><span class="step-num">4</span><span class="step-body">P.A.R.M.S 秋葉原店 7F<span class="step-sub">秋葉原駅電気街口から徒歩3〜5分</span></span></li>
-    </ul>
-    <a class="map-link" href="https://www.google.com/maps/dir/35.692678,139.760832/35.6977571,139.7703742" target="_blank">Google マップで経路を見る ↗</a>
+    <a class="map-link" href="https://www.google.com/maps/dir/35.692678,139.760832/35.6977571,139.7703742" target="_blank">Googleマップで見る →</a>
   </div>
 
   <!-- FOOD & DRINK -->
   <div class="section" id="food">
-    <div class="section-header"><span class="section-title">Food &amp; Drink</span><div class="section-line"></div></div>
+    <div class="section-header"><span class="section-title section-title-strong">Food &amp; Drink</span><div class="section-line"></div></div>
 
     <!-- Course Menu アコーディオン -->
     <div class="accordion">
@@ -328,11 +317,11 @@
       <div class="accordion-body">
         <ul class="menu-course">
           <li class="menu-course-item"><span class="course-label">Amuse</span><span><span class="course-name">マカロン ～ハーブ＆チーズ～</span></span></li>
-          <li class="menu-course-item"><span class="course-label">Antipasto</span><span><span class="course-name">前菜3種盛り合わせ</span><span class="course-sub">魚介と香味野菜のセビーチェ／牛たたきと厳選野菜の生春巻き／ツナとポテトの一口タルト ～カレー風味～</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Antipasto</span><span><span class="course-name">前菜3種盛り合わせ</span><span class="course-sub">魚介と香味野菜のセビーチェ<br>牛たたきと厳選野菜の生春巻き<br>ツナとポテトの一口タルト ～カレー風味～</span></span></li>
           <li class="menu-course-item"><span class="course-label">Fritto</span><span><span class="course-name">アコウダイと筍のフリット ～枝豆のグリーンソース～</span></span></li>
-          <li class="menu-course-item"><span class="course-label">Carne</span><span><span class="course-name">お肉盛り合わせ</span><span class="course-sub">三元豚ロースのグリル ～特製シャリアピンソース～／ハーブチキンのロースト ～ローズマリーとレモン～</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Carne</span><span><span class="course-name">お肉盛り合わせ</span><span class="course-sub">三元豚ロースのグリル ～特製シャリアピンソース～<br>ハーブチキンのロースト ～ローズマリーとレモン～</span></span></li>
           <li class="menu-course-item"><span class="course-label">Pasta</span><span><span class="course-name">彩り野菜のホワイトラグー ～パスタカサレッチェ～</span></span></li>
-          <li class="menu-course-item"><span class="course-label">Dolce</span><span><span class="course-name">選べるデザート（1人1品）</span><span class="course-sub">完熟マンゴーソルベ／お持ち帰り用マカロン＆生チョコ</span></span></li>
+          <li class="menu-course-item"><span class="course-label">Dolce</span><span><span class="course-name">選べるデザート（1人1品）</span><span class="course-sub">完熟マンゴーソルベ<br>お持ち帰り用マカロン＆生チョコ</span></span></li>
         </ul>
         <p style="font-size:11px;color:var(--gray-400);margin-top:0.5rem;">※ アレルギー対応は事前申告で個別調整</p>
       </div>
@@ -365,18 +354,18 @@
 
   <!-- FACILITY -->
   <div class="section" id="facility">
-    <div class="section-header"><span class="section-title">施設案内</span><div class="section-line"></div></div>
+    <div class="section-header"><span class="section-title section-title-strong">施設案内</span><div class="section-line"></div></div>
     <ul class="info-list">
       <li class="info-item">
-        <span class="info-label">受付</span>
-        <span class="info-value">7Fフロア入り口<br><span class="info-note">会場フロアに入ってすぐ。当日はこちらで名簿チェック。</span></span>
+        <span class="info-label"><span style="filter:grayscale(1);">📝</span> 受付</span>
+        <span class="info-value">7Fフロア入口<br><span class="info-note">会場フロアに入ってすぐ。当日はこちらで名簿チェック。</span></span>
       </li>
       <li class="info-item">
-        <span class="info-label">喫煙所</span>
+        <span class="info-label"><span style="filter:grayscale(1);">🚬</span> 喫煙所</span>
         <span class="info-value">6F・4F・1F 喫煙スペース<br><span class="info-note">7F会場内は禁煙。他フロアの共用スペースをご利用ください。</span></span>
       </li>
       <li class="info-item">
-        <span class="info-label">トイレ</span>
+        <span class="info-label"><span style="filter:grayscale(1);">🚻</span> トイレ</span>
         <span class="info-value">7Fフロア内（数が少なめ）<br><span class="info-note">混雑時はカラオケフロア（1F・4F・6F）のトイレも併用可。</span></span>
       </li>
       <li class="info-item">
@@ -388,7 +377,7 @@
 
   <!-- NOVELTY -->
   <div class="section" id="novelty">
-    <div class="section-header"><span class="section-title">Novelty</span><div class="section-line"></div></div>
+    <div class="section-header"><span class="section-title section-title-strong">Novelty</span><div class="section-line"></div></div>
     <div class="guest-card">
       <div class="guest-label">Guest Speaker</div>
       <div class="guest-name">HERALBONY（ヘラルボニー）</div>
@@ -400,12 +389,11 @@
 
   <!-- DRESSCODE -->
   <div class="section" id="dresscode">
-    <div class="section-header"><span class="section-title">Dress Code</span><div class="section-line"></div></div>
+    <div class="section-header"><span class="section-title section-title-strong">Dress Code</span><div class="section-line"></div></div>
     <div class="dresscode-card">
-      <div class="dresscode-label">Dress Code</div>
-      <div class="dresscode-main">黒Tシャツ</div>
+      <div class="dresscode-main">黒のD&amp;Iシャツ</div>
       <p class="dresscode-desc">
-        今回は全員で一体感を持って盛り上がるため、ドレスコードを「黒Tシャツ」といたします。写真にも残る"チームとしての一体感"を大切にしたいと考えています。<br><br>
+        今回は全員で一体感を持って盛り上がるため、ドレスコードを「黒のD&amp;Iシャツ」といたします。写真にも残る"チームとしての一体感"を大切にしたいと考えています。<br><br>
         推奨：D&amp;I オリジナル黒Tシャツ<br>
         お持ちでない場合：黒系のトップスでご参加ください。<br>
         ボトムス：動きやすい自由な服装で構いません。<br>
@@ -417,7 +405,7 @@
 
   <!-- REQUEST -->
   <div class="section" id="request">
-    <div class="section-header"><span class="section-title">当日のお願い</span><div class="section-line"></div></div>
+    <div class="section-header"><span class="section-title section-title-strong">当日のお願い</span><div class="section-line"></div></div>
     <ul class="request-list">
       <li class="request-item">
         <span class="request-bullet">1</span>
@@ -437,6 +425,10 @@
       </li>
       <li class="request-item">
         <span class="request-bullet">5</span>
+        <div><div class="request-title">開始時間厳守</div><div class="request-body">受付は12:30より開始し、第一部は13:00開始となります。スムーズに開始できるよう、12:55までに必ずご着席いただきますようお願いいたします。</div></div>
+      </li>
+      <li class="request-item">
+        <span class="request-bullet">6</span>
         <div><div class="request-title">第2部開始前の休憩</div><div class="request-body">第2部開始前に20分間の休憩がございます。その間に会場の転換を行うため、一度会場の外へご移動いただくか、ステージ付近へのご移動にご協力ください。第2部開始直後に乾杯を予定しておりますので、休憩中にドリンクのご準備をお願いいたします（5分前には戻ってきてください）。</div></div>
       </li>
     </ul>
@@ -457,7 +449,7 @@
     <div class="sidebar-label">
       <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Venue
     </div>
-    <div class="sidebar-value">P.A.R.M.S 秋葉原店 7F</div>
+    <div class="sidebar-value" style="font-weight:500;">P.A.R.M.S秋葉原店 7F</div>
     <div class="sidebar-sub">千代田区外神田1-1-10<br>秋葉原駅 徒歩3分</div>
     <a class="sidebar-link" href="https://pasela.co.jp/paselive/shop/parms_akihabara" target="_blank">会場詳細 ↗</a>
   </div>
@@ -465,7 +457,7 @@
     <div class="sidebar-label">
       <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>ドレスコード
     </div>
-    <div class="sidebar-value">黒Tシャツ</div>
+    <div class="sidebar-value">黒のD&amp;Iシャツ</div>
     <div class="sidebar-sub">D&amp;Iオリジナル推奨</div>
   </div>
   <div class="sidebar-block">
